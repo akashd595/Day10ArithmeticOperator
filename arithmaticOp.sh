@@ -6,4 +6,5 @@ read -p "Enter 3rd number " c;
 
 firstOp=`echo "$a+$b*$c"|bc -l`;
 secondOp=`echo "$a*$b+$c"|bc -l`;
+thirdOp=`echo "$c+$a/$b"|bc -l`;
 
