@@ -40,5 +40,20 @@ do
 		fi
 	done
 done
-
 echo "Descending order: " ${Array_com[@]};
+
+for (( i=0; i<$arraySize; ++i ))
+do
+   for (( j=$(($i+1)); j<$arraySize; ++j ))
+   do
+      z=`echo "${Array_com[(($i))]}>${Array_com[(($j))]}"|bc -l`
+      if [ $z -eq 1 ]
+      then
+         temp=${Array_com[(($i))]};
+         Array_com[(($i))]=${Array_com[(($j))]};
+         Array_com[(($j))]=$temp;
+      fi
+   done
+done
+echo "Ascending order: " ${Array_com[@]};
+
